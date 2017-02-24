@@ -27,6 +27,7 @@ setup(
         'setuptools',
         'Products.GenericSetup',
         'plone.app.dexterity',
+        'plone.api',
         # -*- Extra requirements: -*-
     ],
     extras_require={
