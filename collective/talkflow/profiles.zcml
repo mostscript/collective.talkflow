@@ -1,0 +1,16 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:cmf="http://namespaces.zope.org/cmf"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  i18n_domain="collective.talkflow">
+    
+    <!-- register extension profiles for add-on --> 
+    <genericsetup:registerProfile
+        name="default"
+        title="collective.talkflow: add-on for Simple discussion/question flow"
+        directory="profiles/default"
+        description="Provides discussion flow/board for posts/questions"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />  
+
+</configure>
