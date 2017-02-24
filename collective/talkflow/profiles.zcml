@@ -1,16 +1,64 @@
 <configure
   xmlns="http://namespaces.zope.org/zope"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
   xmlns:cmf="http://namespaces.zope.org/cmf"
   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
   i18n_domain="collective.talkflow">
     
-    <!-- register extension profiles for add-on --> 
-    <genericsetup:registerProfile
-        name="default"
-        title="collective.talkflow: add-on for Simple discussion/question flow"
-        directory="profiles/default"
-        description="Provides discussion flow/board for posts/questions"
-        provides="Products.GenericSetup.interfaces.EXTENSION"
-        />  
+  <!-- base for both Plone 4 / Plone 5 -->
+  <genericsetup:registerProfile
+    name="install-base"
+    title="collective.talkflow base profile"
+    directory="profiles/base"
+    description="Base profile for collective.talkflow add-on"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />  
+
+  <!-- Plone 5 -->
+  <genericsetup:registerProfile
+    zcml:condition="have plone-5"
+    name="default"
+    title="collective.talkflow: add-on for discussion/question flow"
+    directory="profiles/plone5"
+    description="Installs the collective.talkflow add-on for Plone 5"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- Plone 4 -->
+  <genericsetup:registerProfile
+    zcml:condition="not-have plone-5"
+    name="default"
+    title="collective.talkflow: add-on for discussion/question flow"
+    directory="profiles/plone4"
+    description="Installs the collective.talkflow add-on for Plone 4.x"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- all uninstall profiles -->
+  <genericsetup:registerProfile
+    name="uninstall-base"
+    title="collective.talkflow base uninstall profile"
+    directory="profiles/uninstall-base"
+    description="collective.talkflow base uninstall profile."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <genericsetup:registerProfile
+    zcml:condition="not-have plone-5"
+    name="uninstall"
+    title="collective.talkflow (uninstall for Plone 4)"
+    directory="profiles/uninstall-plone4"
+    description="Uninstalls collective.talkflow"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <genericsetup:registerProfile
+    zcml:condition="have plone-5"
+    name="uninstall"
+    title="collective.talkflow (uninstall for Plone 5)"
+    directory="profiles/uninstall-plone5"
+    description="Uninstalls collective.talkflow"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
 
 </configure>
