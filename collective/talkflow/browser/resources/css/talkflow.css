@@ -1,0 +1,19 @@
+/* talkflow styles */
+
+body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow-flow::after,
+body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow-discussion::after {
+  background-image: url(../../++resource++collective.talkflow/icons/board16a.png);
+  background-repeat: no-repeat;
+  margin-left:2px !important;
+  width:20px !important;
+  content:' ';
+}
+
+body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow-discussion::after {
+  background-image: url(../../++resource++collective.talkflow/icons/discussion16a.png);
+}
+
+
+body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow-answer::after {
+  content:'A';
+}

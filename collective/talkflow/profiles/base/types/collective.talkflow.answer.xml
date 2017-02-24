@@ -22,6 +22,7 @@
   <property name="klass">collective.talkflow.content.DiscussionAnswer</property>
 
   <property name="behaviors">
+    <element value="plone.app.dexterity.behaviors.metadata.IBasic" />
     <element value="plone.app.content.interfaces.INameFromTitle" />
   </property>
 
