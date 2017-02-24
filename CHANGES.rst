@@ -4,5 +4,5 @@ Changelog
 0.1.dev0 (unreleased)
 --------------------
 
-- Initial work
+- Initial work: installable add-on including content types, resources.
 
