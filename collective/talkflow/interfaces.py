@@ -9,6 +9,10 @@ from collective.talkflow import _
 from plone.app.dexterity import _ as _d_
 
 
+class ITalkflowProductLayer(Interface):
+    """Marker interface for browser layer"""
+
+
 class IBaseDiscussionContent(model.Schema):
     """Base discussion content (rich text)"""
 

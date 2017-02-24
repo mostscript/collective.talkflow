@@ -1,0 +1,6 @@
+<?xml version="1.0"?>    
+<layers> 
+  <layer name="collective.talkflow"
+         interface="collective.talkflow.interfaces.ITalkflowProductLayer" /> 
+</layers>
+
