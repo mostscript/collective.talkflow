@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<registry>
+
+  <records prefix="plone.bundles/talkflow"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry'
+            remove="true">
+  </records>
+  <record name="plone.displayed_types" purge="false">
+    <element remove="true">collective.talkflow.flow</element>
+  </record>
+
+</registry>
