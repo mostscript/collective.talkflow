@@ -1,4 +1,5 @@
 <registry>
+  <!-- js/css bundle -->
   <records prefix="plone.bundles/talkflow"
            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
     <value key="enabled">True</value>
@@ -8,4 +9,10 @@
     <value key="compile">False</value>
     <value key="depends">plone</value>
   </records>
+  <!-- include Flow in nav-displayed types -->
+  <record name="plone.displayed_types" interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema" field="displayed_types">
+    <value purge="False">
+      <element>collective.talkflow.flow</element>
+    </value>
+  </record>
 </registry>
