@@ -25,18 +25,8 @@ class IBaseDiscussionContent(model.Schema):
     description = schema.Text()
 
 
-class IDiscussionPost(IBaseDiscussionContent):
-    """Discussion post, may be discussion or question"""
-
-    question = schema.Bool(
-        title=_(u'label_question', default=u'Is question'),
-        description=_(
-            u'help_question',
-            default=u'Should this discussion be treated as a question '
-                    u'with answers permitted within?'
-            ),
-        default=False,
-        )
+class IDiscussionTaggedContent(model.Schema):
+    """Content that has tags/subjects widget on main fieldset"""
 
     subjects = schema.Tuple(
         title=_d_(u'label_tags', default=u'Tags'),
@@ -56,6 +46,20 @@ class IDiscussionPost(IBaseDiscussionContent):
     )
 
 
+class IDiscussionPost(IBaseDiscussionContent, IDiscussionTaggedContent):
+    """Discussion post, may be discussion or question"""
+
+    question = schema.Bool(
+        title=_(u'label_question', default=u'Is question'),
+        description=_(
+            u'help_question',
+            default=u'Should this discussion be treated as a question '
+                    u'with answers permitted within?'
+            ),
+        default=False,
+        )
+
+
 class IQuestionPost(Interface):
     """
     Marker interface for an IDiscussionPost object that also is a question.
@@ -66,7 +70,7 @@ class IAnswer(IBaseDiscussionContent):
     """Answer to a question"""
 
 
-class IDiscussionFlow(model.Schema):
+class IDiscussionFlow(model.Schema, IDiscussionTaggedContent):
     """Discussion flow (board) contains discussion and question content"""
 
     review_posts = schema.Bool(
