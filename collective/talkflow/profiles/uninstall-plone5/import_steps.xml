@@ -1,0 +1,6 @@
+<import-steps>
+  <import-step id="collective.talkflow-uninstall-base"
+    handler="collective.talkflow.setuphandlers.uninstall_base"
+    title="Uninstall base profile via handler" version="1.0">
+  </import-step>
+</import-steps>
