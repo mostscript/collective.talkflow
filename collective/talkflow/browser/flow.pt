@@ -6,7 +6,7 @@
       i18n:domain="collective.talkflow">
 <body>
 
-<div metal:fill-slot="content">
+<div metal:fill-slot="main">
 
   <div class="flowheader">
     <h2 tal:content="context/title">FLOW TITLE</h2>
