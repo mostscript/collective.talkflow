@@ -15,4 +15,8 @@
       <element>collective.talkflow.flow</element>
     </value>
   </record>
+  <!-- globally allow discussion -->
+  <records interface="plone.app.discussion.interfaces.IDiscussionSettings" purge="False">
+    <value key="globally_enabled">True</value>
+  </records>
 </registry>
