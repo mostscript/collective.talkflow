@@ -36,7 +36,7 @@ class FlowView(BaseView):
     def discussions(self):
         """get all brains for contained discussions"""
         query = utils.local_query(
-            self,
+            self.context,
             {'sort_on': 'modified', 'sort_order': 'descending'},
             types=(DISCUSSION_TYPE,)
             )
@@ -57,7 +57,7 @@ class DiscussionView(BaseView):
         if not getattr(self.context, 'question', False):
             return []
         query = utils.local_query(
-            self,
+            self.context,
             {'sort_on': 'modified', 'sort_order': 'descending'},
             types=(ANSWER_TYPE,)
             )
