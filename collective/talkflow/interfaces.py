@@ -9,6 +9,12 @@ from collective.talkflow import _
 from plone.app.dexterity import _ as _d_
 
 
+# globals for FTI names
+FLOW_TYPE = 'collective.talkflow.flow'
+DISCUSSION_TYPE = 'collective.talkflow.discussion'
+ANSWER_TYPE = 'collective.talkflow.answer'
+
+
 class ITalkflowProductLayer(Interface):
     """Marker interface for browser layer"""
 

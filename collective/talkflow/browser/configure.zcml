@@ -3,6 +3,26 @@
   xmlns:browser="http://namespaces.zope.org/browser"
   i18n_domain="collective.talkflow">
 
+  <!-- Views: -->
+
+  <browser:page
+    name="flow"
+    for="..interfaces.IDiscussionFlow"
+    class=".views.FlowView"
+    template="flow.pt"
+    permission="zope2.View"
+    layer="collective.talkflow.interfaces.ITalkflowProductLayer"
+    />
+
+  <browser:page
+    name="post"
+    for="..interfaces.IDiscussionPost"
+    class=".views.DiscussionView"
+    template="discussion.pt"
+    permission="zope2.View"
+    layer="collective.talkflow.interfaces.ITalkflowProductLayer"
+    />
+
   <!-- resource directory for icons, css, javascript and static files -->
   <browser:resourceDirectory
     name="collective.talkflow"
