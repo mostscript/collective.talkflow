@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<dc-workflow workflow_id="talkflow_workflow" title="DC Workflow Definition" description="" state_variable="state"         initial_state="private" manager_bypass="False" >
+<dc-workflow workflow_id="talkflow_workflow" title="DC Workflow Definition" description="Workflow for collective.talkflow discussions" state_variable="review_state"         initial_state="private" manager_bypass="False" >
  <permission>Access contents information</permission>
  <permission>Add portal content</permission>
+ <permission>Delete comments</permission>
+ <permission>Delete own comments</permission>
+ <permission>Edit comments</permission>
  <permission>Modify portal content</permission>
- <permission>View</permission>
+ <permission>Reply to item</permission>
  <permission>Review comments</permission>
  <permission>Review portal content</permission>
- <permission>Delete own comments</permission>
- <permission>Delete comments</permission>
- <permission>Edit comments</permission>
- <permission>Reply to item</permission>
+ <permission>View</permission>
  <state state_id="private" title="Private / hidden" >
   <exit-transition transition_id="publish" />
   <exit-transition transition_id="share" />
@@ -232,14 +232,14 @@
   
  </state>
  <transition transition_id="hide" title="Hide post" new_state="private" trigger="USER" before_script="" after_script="" >
-  
+  <action url="%(content_url)s/content_status_modify?workflow_action=hide" category="workflow" icon="">Hide post</action>
   <guard >
    <guard-permission>Review portal content</guard-permission>
   </guard>
   
  </transition>
  <transition transition_id="publish" title="Make publicly visible" new_state="published" trigger="USER" before_script="" after_script="" >
-  
+  <action url="%(content_url)s/content_status_modify?workflow_action=publish" category="workflow" icon="">Make publicly visible</action>
   <guard >
    <guard-permission>Review portal content</guard-permission>
   </guard>
@@ -247,20 +247,73 @@
  </transition>
  <transition transition_id="restrict" title="Restrict visibility" new_state="visible" trigger="USER" before_script="" after_script="" >
   <description>Removes explicit public visibility</description>
-  
+  <action url="%(content_url)s/content_status_modify?workflow_action=restrict" category="workflow" icon="">Restrict visibility</action>
   <guard >
    <guard-permission>Review portal content</guard-permission>
   </guard>
   
  </transition>
  <transition transition_id="share" title="Share" new_state="visible" trigger="USER" before_script="" after_script="" >
-  
+  <action url="%(content_url)s/content_status_modify?workflow_action=share" category="workflow" icon="">Share</action>
   <guard >
    <guard-permission>Review portal content</guard-permission>
   </guard>
   
  </transition>
- 
- 
+ <worklist worklist_id="reviewer_queue" title="" >
+  <description>Reviewer tasks</description>
+  <action url="%(portal_url)s/search?review_state=pending" category="global" icon="">Pending (%(count)d)</action>
+  <guard >
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+  <match name="review_state" values="pending" />
+ </worklist>
+ <variable variable_id="action" for_catalog="False" for_status="True" update_always="True" >
+  <description>Previous transition</description>
+  <default>
+   
+   <expression>transition/getId|nothing</expression>
+  </default>
+  <guard >
+  </guard>
+ </variable>
+ <variable variable_id="actor" for_catalog="False" for_status="True" update_always="True" >
+  <description>The ID of the user who performed the last transition</description>
+  <default>
+   
+   <expression>user/getId</expression>
+  </default>
+  <guard >
+  </guard>
+ </variable>
+ <variable variable_id="comments" for_catalog="False" for_status="True" update_always="True" >
+  <description>Comment about the last transition</description>
+  <default>
+   
+   <expression>python:state_change.kwargs.get('comment', '')</expression>
+  </default>
+  <guard >
+  </guard>
+ </variable>
+ <variable variable_id="review_history" for_catalog="False" for_status="False" update_always="False" >
+  <description>Provides access to workflow history</description>
+  <default>
+   
+   <expression>state_change/getHistory</expression>
+  </default>
+  <guard >
+   <guard-permission>Request review</guard-permission>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </variable>
+ <variable variable_id="time" for_catalog="False" for_status="True" update_always="True" >
+  <description>When the previous transition was performed</description>
+  <default>
+   
+   <expression>state_change/getDateTime</expression>
+  </default>
+  <guard >
+  </guard>
+ </variable>
  
 </dc-workflow>
