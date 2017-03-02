@@ -4,7 +4,7 @@
     i18n:domain="collective.talkflow">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">Discussion post</property>
+  <property name="title" i18n:translate="">Discussion Post</property>
   <property name="description" i18n:translate="">Discussion post or question</property>
   <property name="icon_expr">string:${portal_url}/++resource++collective.talkflow/icons/discussion16a.png</property>
   <property name="factory">collective.talkflow.discussion</property>

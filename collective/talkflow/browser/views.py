@@ -4,9 +4,13 @@ from plone import api
 import utils
 
 
+_marker = object()
+
+
 class BaseView(object):
    
     index = None  # to be defined by Five magic template generated class
+    _can_add = _marker
  
     def __init__(self, context, request):
         self.context = context
@@ -21,6 +25,13 @@ class BaseView(object):
 
     def update(self, *args, **kwargs):
         raise NotImplementedError('base method')
+
+    def can_add(self):
+        if self._can_add is _marker:
+            # get local permissions for current auth user
+            permissions = api.user.get_permissions(obj=self.context)
+            self._can_add = permissions.get('Add portal content', False)
+        return self._can_add
 
     def __call__(self, *args, **kwargs):
         self.update(*args, **kwargs)

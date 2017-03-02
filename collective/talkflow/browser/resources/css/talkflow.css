@@ -28,4 +28,84 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-collective-talk
   top: 6px !important;
 }
 
+/* styles for view(s) */
 
+.flowheader {
+  min-height:80px;
+  padding:8px;
+  color:navy;
+  background-image: url(../../++resource++collective.talkflow/icons/flow-header-bg.svg);
+  background-repeat: no-repeat;
+  width:100%;
+  background-size:contain;
+}
+
+.flowheader > h2 {
+  margin-left: 80px;
+  margin-top:0px;
+}
+
+.flowheader > h2:before {
+  background-size:contain;
+  position:absolute;
+  top:0;
+  margin:0;
+  margin-left:-76px;
+  padding:0;
+  display:inline-block;
+  width:64px;
+  height:64px;
+  background-image: url(../../++resource++collective.talkflow/icons/board-a.svg);
+  background-repeat: no-repeat;
+  content: ' ';
+}
+
+.flowheader > p.help {
+  margin-left:80px;
+}
+
+ul.posts li p.comment-count a {
+  color:#999;
+}
+
+ul.posts {
+  clear:both;
+  border-left:3px solid #ccc;
+  margin-top:1em !important;
+}
+
+.cleardiv {
+  clear:both;
+}
+
+ul.posts li p.comment-count a:after {
+  content:"→";
+}
+
+.flowheader p.flow-desc {
+  margin-left:80px;
+  width:90% !important;
+  padding:1em;
+  width:100%;
+  background-color:rgba(255,255,255,0.8);
+  border:1px solid skyblue;
+}
+
+.flowheader .addbuttons {
+  list-style-type:none;
+  margin-left:80px;
+  padding-left:0px;
+}
+
+.flowheader .addbuttons li {
+  font-size:120%;
+  font-weight:bold;
+  display:block;
+  float:left;
+  max-width:14em;
+  border:1px solid #090;
+  border-radius:0.5em;
+  margin-right:0.5em;
+  padding:0.5em;
+  background-color:#9fb;
+}

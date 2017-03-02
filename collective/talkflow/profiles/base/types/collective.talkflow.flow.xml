@@ -38,8 +38,8 @@
   <property name="add_permission">cmf.AddPortalContent</property>
 
   <!-- Method aliases -->
-  <alias from="(Default)" to="(dynamic view)" />
-  <alias from="view" to="(selected layout)" />
+  <alias from="(Default)" to="@@flow" />
+  <alias from="view" to="@@flow" />
   <alias from="edit" to="@@edit" />
   <alias from="sharing" to="@@sharing" />
 

@@ -8,11 +8,74 @@
 
 <div metal:fill-slot="main">
 
+<tal:block define="items view/discussions;
+                   base request/URL1">
+
   <div class="flowheader">
     <h2 tal:content="context/title">FLOW TITLE</h2>
+    <p class="help" tal:define="count python:len(items)">
+      There are 
+        <span tal:content="count">N</span>
+      discussions in this flow.
+      <em tal:condition="python:count==0 and view.can_add()">Add a
+        <a href=""
+           tal:attributes="href string:${base}/++add++collective.talkflow.discussion"
+          >post</a>
+          or a
+        <a href=""
+           tal:attributes="href string:${base}/++add++collective.talkflow.discussion?addquestion=1"
+          >post</a>
+      </em>
+    </p>
+    <p class="discreet flow-desc" tal:content="context/description">DESC</p>
+
+    <ul class="addbuttons" tal:condition="view/can_add">
+      <li>
+        <a href=""
+           tal:attributes="href string:${base}/++add++collective.talkflow.discussion"
+          >
+        + Create new discussion
+        </a>
+      </li>
+      <li>
+        <a href=""
+           tal:attributes="href string:${base}/++add++collective.talkflow.discussion?addquestion=1"
+          >
+          + Ask a new question
+        </a>
+      </li>
+    </ul>
+
+    <div class="cleardiv"></div>
   </div>
 
+  <div class="list-posts">
+    <ul class="posts">
+      <!-- post items are catalog brains -->
+      <li class="post" tal:repeat="post items">
+        <h3>
+          <a href=""
+             tal:attributes="href post/getId"
+             tal:content="post/Title"
+            >
+            TITLE
+          </a>
+        </h3>
+        <p class="discreet" tal:content="post/Description">
+          Cooked description text
+        </p>
+        <p class="help comment-count">
+          <a href="" tal:attributes="href post/getId">
+            <span tal:content="post/total_comments">0</span> comments.
+          </a>
+        </p>
+      </li>
+    </ul>
 
+
+  </div>
+
+</tal:block>
 </div>
 
 </body>
