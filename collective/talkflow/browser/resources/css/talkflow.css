@@ -8,7 +8,7 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow
   background-repeat: no-repeat !important;
   margin-left:2px !important;
   width:20px !important;
-  content:' ';
+  content:' ' !important;
 }
 
 body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow-discussion::after,
