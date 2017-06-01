@@ -9,6 +9,7 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow
   margin-left:2px !important;
   width:20px !important;
   content:' ' !important;
+  margin-left: 0.2em !important;
 }
 
 body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow-discussion::after,
