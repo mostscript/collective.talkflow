@@ -27,7 +27,6 @@
   <browser:resourceDirectory
     name="collective.talkflow"
     directory="resources"
-    layer="collective.talkflow.interfaces.ITalkflowProductLayer"
     /> 
 
 </configure>
