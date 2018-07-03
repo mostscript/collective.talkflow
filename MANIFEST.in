@@ -1,5 +1,6 @@
 include *.txt
-include README.txt
+include *.rst
+include README.rst
 
 recursive-include docs *
 recursive-include collective *

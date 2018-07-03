@@ -20,11 +20,14 @@ Requires
 Credits
 -------
 
-Developed by the University of Utah Department of Pediatrics for UPIQ, the
-Utah Pediatric Partnership to Improve Healthcare Quality.
+Development 2018 to present: Mostscript LLC / Sean Upton
 
-Author: Sean Upton <sean.upton@hsc.utah.edu>
+Originally developed by the University of Utah Department of Pediatrics
+for UPIQ, the Utah Pediatric Partnership to Improve Healthcare Quality.
 
+Author: Sean Upton <sean@mostscript.com>
+
+Copyright 2018, Mostscript LLC
 Copyright 2017, The University of Utah.
 
 Released as free software under the GNU GPL version 2 license.  Image,

@@ -16,8 +16,8 @@ setup(
         ],
     keywords='',
     author='Sean Upton',
-    author_email='sean.upton@hsc.utah.edu',
-    url='http://github.com/collective',
+    author_email='sean@mostscript.com',
+    url='http://github.com/mostscript',
     license='GPL',
     packages=find_packages(exclude=['ez_setup']),
     namespace_packages=['collective'],
@@ -39,4 +39,3 @@ setup(
     target = plone
     ''',
     )
-

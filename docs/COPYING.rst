@@ -1,7 +1,8 @@
 Free software
 -------------
 
-Copyright, 2017 The University of Utah.
+Copyright, 2018 Mostscript LLC
+Original work, Copyright, 2017 The University of Utah.
 
 This package (collective.talkflow) is free software licensed under GPL v2,
 with some assets licensed under an MIT-style license (see below).
