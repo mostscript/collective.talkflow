@@ -1,9 +1,7 @@
 /* talkflow styles */
 
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow-flow::after,
-body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-collective-talkflow-flow::before,
-body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-collective-talkflow-discussion::before,
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow-discussion::after {
+body#visual-portal-wrapper.pat-plone .plone-toolbar-main .contenttype-collective-talkflow-flow::before,
+body#visual-portal-wrapper.pat-plone .plone-toolbar-main .contenttype-collective-talkflow-discussion::before {
   background-image: url(../../++resource++collective.talkflow/icons/board16a.png);
   background-repeat: no-repeat !important;
   margin-left:2px !important;
@@ -12,19 +10,17 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow
   margin-left: 0.2em !important;
 }
 
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow-discussion::after,
-body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-collective-talkflow-discussion::before {
+body#visual-portal-wrapper.pat-plone .plone-toolbar-main .contenttype-collective-talkflow-discussion::before {
   background-image: url(../../++resource++collective.talkflow/icons/discussion16a.png);
 }
 
 
-body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-collective-talkflow-answer::before,
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-collective-talkflow-answer::after {
+body#visual-portal-wrapper.pat-plone .plone-toolbar-main .contenttype-collective-talkflow-answer::before {
   content:'A';
 }
 
-body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-collective-talkflow-flow::before,
-body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-collective-talkflow-discussion::before {
+body#visual-portal-wrapper.pat-plone .plone-toolbar-main .contenttype-collective-talkflow-flow::before,
+body#visual-portal-wrapper.pat-plone .plone-toolbar-main .contenttype-collective-talkflow-discussion::before {
   margin-top: -5.5px !important;
   top: 6px !important;
 }
